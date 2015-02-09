@@ -7,7 +7,7 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 function addListener(button, tab) {
-  buttons[i].addEventListener('click', function() {
+  button.addEventListener('click', function() {
     infoSpot.innerHTML = tab.innerHTML;
   });
 }

@@ -4,6 +4,7 @@ var rotatorBlock = document.getElementById('rotator');
 
 var count = 0;
 
+//Sets inital image
 rotatorBlock.innerHTML = transition(katarinaSet);
 
 setInterval(function() {
@@ -14,6 +15,7 @@ var start = null;
 var duration = 1500;
 var once = false;
 
+// Fades out the current image in 1.5 seconds and fades in the next one
 function step(timestamp) {
   if (!start) {
     start = timestamp;
@@ -30,7 +32,6 @@ function step(timestamp) {
       rotatorBlock.innerHTML = transition(katarinaSet);
       once = false;
     }
-    console.log(progress/duration - 1);
     rotatorBlock.style.opacity = progress/duration - 1;
     window.requestAnimationFrame(step);
   } else {
@@ -38,9 +39,9 @@ function step(timestamp) {
   }
 }
 
+// Cycles through the katarina images
 function transition(katarinaSet) {
   var index = count % 4;
   count++;
-  console.log(katarinaSet, count, index, katarinaSet[index]);
   return katarinaSet[index].innerHTML;
 }
